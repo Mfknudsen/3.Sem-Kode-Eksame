@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const urlAPI = "";
-const urlAuctions = urlAPI + "allAuctions";
+const urlAPI = "http://localhost:8080/Backend_war_exploded/api/";
+const urlAuctions = urlAPI + "Auction";
 
 const application_json = () => {
     var ops = {
@@ -23,23 +23,30 @@ function handleHttpErrors(response) {
 }
 
 function BackendAPI(){
-    const GetAllActions = () =>{
+    const GetAllAuctions = () =>{
         const [json, setJson] = useState([]);
         const getData = async () => {
             const response = await fetch(urlAuctions, application_json);
             const json = await response.json();
-            console.log(json);
             setJson(json);
         }
+        
+        useEffect(() => {
+            getData()
+        }, [])
+
+        return json;
     }
     
     const login = (user, password) => {
         const options = makeOptions("POST", true, { username: user, password: password });
-        return fetch(URL + "/api/login", options)
+        return fetch(urlAPI + "login", options)
             .then(handleHttpErrors)
             .then(response => { setToken(response.token) })
     };
     const register = (user, password) => {
+        console.log(user);
+        console.log(password);
         const options = makeOptions("POST", false, { username: user, password: password });
         return fetch(URL + "/api/register", options)
             .then(handleHttpErrors)
@@ -78,6 +85,7 @@ function BackendAPI(){
         localStorage.removeItem('jwtToken');
     }
     return {
+        GetAllAuctions,
         makeOptions,
         setToken,
         getToken,

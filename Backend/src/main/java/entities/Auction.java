@@ -19,6 +19,23 @@ public class Auction {
     @Column
     private String location;
 
-    @OneToMany
-    private List<Boat> boats;
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getLocation() {
+        return location;
+    }
 }

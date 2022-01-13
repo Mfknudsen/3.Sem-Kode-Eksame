@@ -11,6 +11,8 @@ import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import facades.UserFacade;
+
+import java.io.Console;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,6 +25,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.apache.maven.wagon.observers.Debug;
 import security.errorhandling.AuthenticationException;
 import errorhandling.GenericExceptionMapper;
 import javax.persistence.EntityManagerFactory;
@@ -45,6 +49,8 @@ public class LoginEndpoint {
             JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
             username = json.get("username").getAsString();
             password = json.get("password").getAsString();
+            System.out.println(username);
+            System.out.println(password);
         } catch (Exception e) {
            throw new API_Exception("Malformed JSON Suplied",400,e);
         }

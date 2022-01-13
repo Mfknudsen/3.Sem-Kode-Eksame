@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Backend" options="-endorseddirs D:\GitHub\3.Sem-Kode-Eksame\Backend\target/endorsed" />
+      <module name="Backend" options="-endorseddirs &quot;C:\Users\Mads T.F. Knudsen\Documents\GitHub\3.Sem-Kode-Eksame\Backend\target/endorsed&quot;" />
       <module name="CA2_Back" options="-endorseddirs D:\GitHub\CA2_Back\target/endorsed" />
       <module name="devops-starter" options="-endorseddirs D:\GitHub\CPH_Skabelon\target/endorsed" />
     </option>

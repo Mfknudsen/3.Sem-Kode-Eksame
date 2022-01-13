@@ -3,9 +3,27 @@ package facades;
 import dtos.AuctionDTO;
 import interfaces.IFacade;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import java.util.List;
 
 public class AuctionFacade implements IFacade<AuctionDTO> {
+    private static EntityManagerFactory emf;
+    private static AuctionFacade instance;
+
+    public AuctionFacade() {
+    }
+
+    public static AuctionFacade getAuctionFacade(EntityManagerFactory _emf){
+        if(instance == null){
+            emf = _emf;
+            instance = new AuctionFacade();
+        }
+
+        return instance;
+    }
+
     @Override
     public AuctionDTO create(AuctionDTO classDTO) {
         return null;
@@ -23,7 +41,9 @@ public class AuctionFacade implements IFacade<AuctionDTO> {
 
     @Override
     public List<AuctionDTO> getAll() {
-        return null;
+        EntityManager em = emf.createEntityManager();
+        Query q = em.createQuery("select a from Auction a");
+        return AuctionDTO.getDTOs(q.getResultList());
     }
 
     @Override

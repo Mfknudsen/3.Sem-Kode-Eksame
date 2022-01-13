@@ -8,10 +8,23 @@ import javax.ws.rs.*;
 import dtos.AuctionDTO;
 import dtos.BoatDTO;
 import dtos.OwnerDTO;
+import facades.AuctionFacade;
 import utils.EMF_Creator;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Path("Auction")
 public class AuctionRest {
-    private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
+    private AuctionFacade auctionFacade;
+
+    private AuctionFacade getAuctionFacade(){
+        if(auctionFacade == null)
+            auctionFacade = AuctionFacade.getAuctionFacade(ApplicationConfig.GetEMF());
+
+        return auctionFacade;
+    }
+
     @Context
     private UriInfo context;
 
@@ -21,7 +34,11 @@ public class AuctionRest {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String get() {
-        return "{\"msg\": \"Hello anonymous\"}";
+        List<AuctionDTO> dtos = new ArrayList<>();
+        for (AuctionDTO auctionDTO : getAuctionFacade().getAll())
+            dtos.add(auctionDTO);
+
+        return ApplicationConfig.GetGSON().toJson(dtos);
     }
 
     @GET
@@ -31,12 +48,5 @@ public class AuctionRest {
     public String getFromUser() {
         String thisUser = securityContext.getUserPrincipal().getName();
         return "{\"msg\": \"Hello to User: " + thisUser + "\"}";
-    }
-
-    @POST
-    @Path("Populate")
-    @RolesAllowed("admin")
-    public void populateAndGetAuctions() {
-        OwnerDTO ownerDTO = new OwnerDTO("popOwner", "12121212", "pop@popmail.pop");
     }
 }

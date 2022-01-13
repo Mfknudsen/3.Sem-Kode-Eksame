@@ -80,7 +80,7 @@ public class RenameMeResourceTest {
 
     @Test
     public void testServerIsUp() {
-        given().when().get("/xxx").then().statusCode(200);
+        given().when().get("/Temp").then().statusCode(200);
     }
 
     //This test assumes the database contains two rows

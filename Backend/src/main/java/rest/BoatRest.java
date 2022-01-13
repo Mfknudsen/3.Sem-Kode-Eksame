@@ -6,6 +6,7 @@ import facades.BoatFacade;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+@Path("Boat")
 public class BoatRest {
     private BoatFacade boatFacade;
 
@@ -14,6 +15,12 @@ public class BoatRest {
             boatFacade =  BoatFacade.getBoatFacade(ApplicationConfig.GetEMF());
 
         return boatFacade;
+    }
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String get(){
+        return "Hej";
     }
 
     @POST

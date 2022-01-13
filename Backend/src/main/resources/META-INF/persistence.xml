@@ -8,6 +8,11 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <!-- Insert new Entities Here           -->
         <!--<class>entities.Skabelon</class>-->
+        <class>entities.Owner</class>
+        <class>entities.Auction</class>
+        <class>entities.Boat</class>
+        <class>entities.Role</class>
+        <class>entities.User</class>
         <!--                                    -->
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
@@ -26,7 +31,7 @@
 
             <!-- In PRODUCTION the values below, will be overriden by utils.EMF_Creator -->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/CA2?serverTimezone=UTC"/>
+                      value="jdbc:mysql://localhost:3306/backend?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="dev"/>
             <property name="javax.persistence.jdbc.password" value="ax2"/>
 
@@ -38,6 +43,11 @@
         <!-- DO NOT RENAME THE PERSISTENCE UNIT -->
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <!-- Insert new Entities Here           -->
+        <class>entities.Owner</class>
+        <class>entities.Auction</class>
+        <class>entities.Boat</class>
+        <class>entities.Role</class>
+        <class>entities.User</class>
         <!--                                    -->
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
@@ -45,7 +55,7 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="eclipselink.canonicalmodel.subpackage" value="ghy636765"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/CA2_test?serverTimezone=UTC"/>
+                      value="jdbc:mysql://localhost:3306/backend_test?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="dev"/>
             <property name="javax.persistence.jdbc.password" value="ax2"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
