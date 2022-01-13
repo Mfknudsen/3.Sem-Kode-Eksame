@@ -4,11 +4,9 @@ import BackendAPI from "../API/BackendAPI.jsx";
 export default function AuctionList(){
     const auctionList = BackendAPI.GetAllAuctions();
 
-console.log(auctionList);
-
     return(
         <div>
-            List of Auctions
+            List of All Auctions
             <ul>
                 {
                     auctionList.map((element, index) => (

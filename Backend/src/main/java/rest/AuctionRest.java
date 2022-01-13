@@ -66,7 +66,6 @@ public class AuctionRest {
     @Path("Remove")
     public void RemoveAuction(String jsonString){
         JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
-        System.out.println(json.get("id").getAsLong());
         getAuctionFacade().DeleteByID(json.get("id").getAsLong());
     }
 }

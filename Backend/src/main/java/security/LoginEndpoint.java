@@ -60,7 +60,6 @@ public class LoginEndpoint {
             responseJson.addProperty("username", username);
             responseJson.addProperty("role", user.getFirstRole());
             responseJson.addProperty("token", token);
-            System.out.println(responseJson);
             return Response.ok(new Gson().toJson(responseJson)).build();
 
         } catch (JOSEException | AuthenticationException ex) {

@@ -3,6 +3,7 @@ package rest;
 import dtos.BoatDTO;
 import facades.BoatFacade;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -17,14 +18,19 @@ public class BoatRest {
         return boatFacade;
     }
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String get(){
-        return "Hej";
+    @PUT
+    @Path("Update")
+    @RolesAllowed("user")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void UpdateBoat(String jsonString){
+        System.out.println(jsonString);
+        BoatDTO dto = ApplicationConfig.GetGSON().fromJson(jsonString, BoatDTO.class);
+        GetBoatFacade().update(dto);
     }
 
     @POST
-    @Path("AddBoat")
+    @Path("Add")
+    @RolesAllowed("user")
     @Consumes(MediaType.APPLICATION_JSON)
     public void AddBoat(String jsonInput){
         BoatDTO dto = ApplicationConfig.GetGSON().fromJson(jsonInput, BoatDTO.class);

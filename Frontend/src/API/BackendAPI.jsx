@@ -48,6 +48,18 @@ function BackendAPI(){
         fetch(urlAPI+"Auction/Remove", options)
         .then(handleHttpErrors)
     }
+
+    const AddBoat = (name, brand, make, year, url) => {
+        const options = makeOptions("POST", true, { name: name, brand:brand, make:make, year:year, url: url});
+        fetch(urlAPI+"Boat/Add", options)
+        .then(handleHttpErrors)
+    }
+
+    const UpdateBoat = (id, name, brand, make, year, url) => {
+        const options = makeOptions("PUT", true, {id:id, name: name, brand:brand, make:make, year:year, url: url});
+        fetch(urlAPI+"Boat/Update", options)
+        .then(handleHttpErrors)
+    }
     
     const login = (user, password) => {
         const options = makeOptions("POST", true, { username: user, password: password });
@@ -97,6 +109,8 @@ function BackendAPI(){
         GetAllAuctions,
         AddAuction,
         RemoveAuction,
+        AddBoat,
+        UpdateBoat,
         makeOptions,
         setToken,
         getToken,
