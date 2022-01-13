@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function OwnerMain(){
+export default function UserPage(){
 
     return(
         <div>
-
+            User
         </div>
     )
 }

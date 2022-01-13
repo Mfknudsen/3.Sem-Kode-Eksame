@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import javax.ws.rs.QueryParam;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,16 @@ public class Auction {
     private String time;
     @Column
     private String location;
+
+    public Auction() {
+    }
+
+    public Auction(String name, String date, String time, String location) {
+        this.name = name;
+        this.date = date;
+        this.time = time;
+        this.location = location;
+    }
 
     public Long getId() {
         return id;

@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 
 const urlAPI = "http://localhost:8080/Backend_war_exploded/api/";
@@ -37,23 +36,33 @@ function BackendAPI(){
 
         return json;
     }
+
+    const AddAuction = (name, location, time, date) => {
+        const options = makeOptions("POST", true, { name: name, location: location, time: time, date: date});
+        fetch(urlAPI+"Auction/Add", options)
+        .then(handleHttpErrors)
+    }
+
+    const RemoveAuction = (id) =>{
+        const options = makeOptions("POST", true, { id: id});
+        fetch(urlAPI+"Auction/Remove", options)
+        .then(handleHttpErrors)
+    }
     
     const login = (user, password) => {
         const options = makeOptions("POST", true, { username: user, password: password });
         return fetch(urlAPI + "login", options)
             .then(handleHttpErrors)
-            .then(response => { setToken(response.token) })
+            .then(response => { setToken(response.token);
+            return {
+                username: response["username"],
+                role: response["role"] 
+            }})
     };
     const register = (user, password) => {
-        console.log(user);
-        console.log(password);
-        const options = makeOptions("POST", false, { username: user, password: password });
-        return fetch(URL + "/api/register", options)
+        const options = makeOptions("POST", true, { username: user, password: password });
+        return fetch(urlAPI + "login/New", options)
             .then(handleHttpErrors)
-    }
-    const fetchData = () => {
-        const options = makeOptions("GET", true);
-        return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
     }
     const makeOptions = (method, addToken, body) => {
         var opts = {
@@ -86,14 +95,15 @@ function BackendAPI(){
     }
     return {
         GetAllAuctions,
+        AddAuction,
+        RemoveAuction,
         makeOptions,
         setToken,
         getToken,
         loggedIn,
         login,
         register,
-        logout,
-        fetchData
+        logout
     }
 }
 const facade = BackendAPI();

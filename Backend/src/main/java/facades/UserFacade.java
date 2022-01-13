@@ -4,6 +4,7 @@ import entities.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import security.errorhandling.AuthenticationException;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * @author lam@cphbusiness.dk
@@ -43,4 +44,11 @@ public class UserFacade {
         return user;
     }
 
+    public void createUser(String username, String password){
+        EntityManager em = emf.createEntityManager();
+        User user = new User(username, password);
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
+    }
 }

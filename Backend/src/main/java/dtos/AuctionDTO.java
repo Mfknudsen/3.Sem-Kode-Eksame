@@ -37,4 +37,20 @@ public class AuctionDTO implements Idto<AuctionDTO, Auction> {
 
         return result;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getLocation() {
+        return location;
+    }
 }

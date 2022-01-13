@@ -17,19 +17,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import entities.User;
 import errorhandling.API_Exception;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.maven.wagon.observers.Debug;
 import security.errorhandling.AuthenticationException;
 import errorhandling.GenericExceptionMapper;
+
 import javax.persistence.EntityManagerFactory;
+
 import utils.EMF_Creator;
 
 @Path("login")
@@ -49,10 +49,8 @@ public class LoginEndpoint {
             JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
             username = json.get("username").getAsString();
             password = json.get("password").getAsString();
-            System.out.println(username);
-            System.out.println(password);
         } catch (Exception e) {
-           throw new API_Exception("Malformed JSON Suplied",400,e);
+            throw new API_Exception("Malformed JSON Suplied", 400, e);
         }
 
         try {
@@ -60,7 +58,9 @@ public class LoginEndpoint {
             String token = createToken(username, user.getRolesAsStrings());
             JsonObject responseJson = new JsonObject();
             responseJson.addProperty("username", username);
+            responseJson.addProperty("role", user.getFirstRole());
             responseJson.addProperty("token", token);
+            System.out.println(responseJson);
             return Response.ok(new Gson().toJson(responseJson)).build();
 
         } catch (JOSEException | AuthenticationException ex) {
@@ -73,7 +73,6 @@ public class LoginEndpoint {
     }
 
     private String createToken(String userName, List<String> roles) throws JOSEException {
-
         StringBuilder res = new StringBuilder();
         for (String string : roles) {
             res.append(string);
@@ -95,6 +94,17 @@ public class LoginEndpoint {
         SignedJWT signedJWT = new SignedJWT(new JWSHeader(JWSAlgorithm.HS256), claimsSet);
         signedJWT.sign(signer);
         return signedJWT.serialize();
-
     }
+
+    @Path("New")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response Register(String jsonString) throws AuthenticationException, API_Exception {
+        JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
+        USER_FACADE.createUser(json.get("username").getAsString(), json.get("password").getAsString());
+        return login(jsonString);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package facades;
 
 import dtos.AuctionDTO;
+import entities.Auction;
 import interfaces.IFacade;
 
 import javax.persistence.EntityManager;
@@ -15,8 +16,8 @@ public class AuctionFacade implements IFacade<AuctionDTO> {
     public AuctionFacade() {
     }
 
-    public static AuctionFacade getAuctionFacade(EntityManagerFactory _emf){
-        if(instance == null){
+    public static AuctionFacade getAuctionFacade(EntityManagerFactory _emf) {
+        if (instance == null) {
             emf = _emf;
             instance = new AuctionFacade();
         }
@@ -24,9 +25,23 @@ public class AuctionFacade implements IFacade<AuctionDTO> {
         return instance;
     }
 
+    public void DeleteByID(long id) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Query q = em.createQuery("delete from Auction a where a.id =" + id);
+        q.executeUpdate();
+        em.getTransaction().commit();
+    }
+
     @Override
-    public AuctionDTO create(AuctionDTO classDTO) {
-        return null;
+    public AuctionDTO create(AuctionDTO dto) {
+        EntityManager em = emf.createEntityManager();
+        Auction auction = new Auction(dto.getName(), dto.getDate(), dto.getTime(), dto.getLocation());
+        em.getTransaction().begin();
+        em.persist(auction);
+        em.getTransaction().commit();
+
+        return dto;
     }
 
     @Override
