@@ -42,6 +42,25 @@ public class BoatFacade implements IFacade<BoatDTO> {
         return dto;
     }
 
+    public List<BoatDTO> getByOwned(long id) {
+        EntityManager em = emf.createEntityManager();
+        List<BoatDTO> result = BoatDTO.getDTOs(em.createQuery("select b from Boat b where b.ownerID=" + id, Boat.class).getResultList());
+        em.close();
+        return result;
+    }
+
+    public void updateOwner(long boatID, long ownerID) {
+        try {
+            EntityManager em = emf.createEntityManager();
+            em.getTransaction().begin();
+            em.createNamedQuery("update backend.OWNER_BOAT set backend.OWNER_BOAT.Owner_ID =" + ownerID + " where backend.OWNER_BOAT.boats_ID =" + boatID).executeUpdate();
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void update(BoatDTO dto) {
         EntityManager em = emf.createEntityManager();
 
@@ -62,7 +81,8 @@ public class BoatFacade implements IFacade<BoatDTO> {
             if (!dto.getUrl().equals(""))
                 em.createQuery("update Boat b set b.ImageURL=" + dto.getUrl() + " where b.id=" + dto.getId()).executeUpdate();
             em.getTransaction().commit();
-        } catch (Exception e){
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 

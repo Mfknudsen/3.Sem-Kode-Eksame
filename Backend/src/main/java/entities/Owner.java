@@ -18,17 +18,13 @@ public class Owner implements Serializable {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @OneToMany()
-    private List<Boat> boats;
-
     public Owner() {
     }
 
-    public Owner(String name, String phone, String email, List<Boat> boats) {
+    public Owner(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.boats = boats;
     }
 
     public Long getId() {

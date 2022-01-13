@@ -12,14 +12,15 @@
     <list default="true" id="8e654cee-d439-4d6e-87ec-cfcbaa9efafd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dtos/BoatDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dtos/BoatDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Boat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Owner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/facades/BoatFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/facades/BoatFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rest/AuctionRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/AuctionRest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rest/BoatRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/BoatRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/security/LoginEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/security/LoginEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/src/API/BackendAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/API/BackendAPI.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/src/Pages/AdminPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/Pages/AdminPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/src/Pages/AuctionListPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/Pages/AuctionListPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/Pages/UserPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/Pages/UserPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +260,7 @@
       <workItem from="1642061114905" duration="5272000" />
       <workItem from="1642071699673" duration="6829000" />
       <workItem from="1642081158859" duration="9663000" />
-      <workItem from="1642096007331" duration="8567000" />
+      <workItem from="1642096007331" duration="14111000" />
     </task>
     <servers />
   </component>

@@ -19,6 +19,15 @@ public class Boat {
     private String Year;
     @Column
     private String ImageURL;
+    @Column
+    private long ownerID;
+    @Column
+    private long auctionID;
+
+    @OneToOne
+    private Owner owner;
+    @OneToOne
+    private Auction auction;
 
     public Boat() {
     }
@@ -29,5 +38,49 @@ public class Boat {
         Make = make;
         Year = year;
         ImageURL = imageURL;
+    }
+
+    public long getOwnerID() {
+        return ownerID;
+    }
+
+    public long getAuctionID() {
+        return auctionID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBrand() {
+        return Brand;
+    }
+
+    public String getMake() {
+        return Make;
+    }
+
+    public String getYear() {
+        return Year;
+    }
+
+    public String getImageURL() {
+        return ImageURL;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+
+        ownerID = owner.getId();
+    }
+
+    public void setAuction(Auction auction) {
+        this.auction = auction;
+
+        auctionID = auction.getId();
     }
 }

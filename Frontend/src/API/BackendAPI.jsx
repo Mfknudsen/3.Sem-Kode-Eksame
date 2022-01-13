@@ -60,6 +60,12 @@ function BackendAPI(){
         fetch(urlAPI+"Boat/Update", options)
         .then(handleHttpErrors)
     }
+
+    const UpdateOwner = (boat, owner) => {
+        const options = makeOptions("PUT", true, {boat: boat, owner: owner});
+        fetch(urlAPI+"Boat/UpdateOwner", options)
+        .then(handleHttpErrors)
+    }
     
     const login = (user, password) => {
         const options = makeOptions("POST", true, { username: user, password: password });
@@ -111,6 +117,7 @@ function BackendAPI(){
         RemoveAuction,
         AddBoat,
         UpdateBoat,
+        UpdateOwner,
         makeOptions,
         setToken,
         getToken,

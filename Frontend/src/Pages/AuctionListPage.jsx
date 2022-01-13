@@ -11,10 +11,11 @@ export default function AuctionList(){
                 {
                     auctionList.map((element, index) => (
                         <li key={index}>
-                            <p>{element["name"]}</p>
-                            <p>{element["time"]}</p>
-                            <p>{element["date"]}</p>
-                            <p>{element["location"]}</p>
+                            <h4>ID: {element["id"]}</h4>
+                            <p>Name: {element["name"]}</p>
+                            <p>Time: {element["time"]}</p>
+                            <p>Date: {element["date"]}</p>
+                            <p>Location: {element["location"]}</p>
                         </li>
                     ))
                 }
