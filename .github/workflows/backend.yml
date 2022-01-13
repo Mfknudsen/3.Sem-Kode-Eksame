@@ -32,7 +32,8 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Maven verify
-        uses: cd Backend
         run: mvn test
+        working-directory: Backend
       - name: Maven deploy
         run: mvn -Dremote.user=${{ secrets.REMOTE_USER }} -Dremote.password=${{ secrets.REMOTE_PW }} tomcat7:deploy
+        working-directory: Backend
