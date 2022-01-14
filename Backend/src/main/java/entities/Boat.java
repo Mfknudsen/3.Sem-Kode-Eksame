@@ -19,10 +19,6 @@ public class Boat {
     private String Year;
     @Column
     private String ImageURL;
-    @Column
-    private long ownerID;
-    @Column
-    private long auctionID;
 
     @OneToOne
     private Owner owner;
@@ -41,11 +37,11 @@ public class Boat {
     }
 
     public long getOwnerID() {
-        return ownerID;
+        return owner.getId();
     }
 
     public long getAuctionID() {
-        return auctionID;
+        return auction.getId();
     }
 
     public Long getId() {
@@ -74,13 +70,9 @@ public class Boat {
 
     public void setOwner(Owner owner) {
         this.owner = owner;
-
-        ownerID = owner.getId();
     }
 
     public void setAuction(Auction auction) {
         this.auction = auction;
-
-        auctionID = auction.getId();
     }
 }

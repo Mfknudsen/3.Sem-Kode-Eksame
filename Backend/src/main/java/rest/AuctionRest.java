@@ -32,6 +32,7 @@ public class AuctionRest {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String Populate() {
+        System.out.println("Populating");
         EntityManager em = ApplicationConfig.GetEMF().createEntityManager();
         Auction a1 = new Auction("a1","a1","a1","a1"),
                 a2 = new Auction("a2","a2","a2","a2"),

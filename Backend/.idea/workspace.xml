@@ -10,17 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e654cee-d439-4d6e-87ec-cfcbaa9efafd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dtos/BoatDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dtos/BoatDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Boat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Owner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/facades/BoatFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/facades/BoatFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rest/AuctionRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/AuctionRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/BoatRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/BoatRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/API/BackendAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/API/BackendAPI.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/Pages/AdminPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/Pages/AdminPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/Pages/AuctionListPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/Pages/AuctionListPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Backend-1.0.1/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Backend-1.0.1/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +77,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
     <configuration name="LoginEndpointTest.testRestNoAuthenticationRequired" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -260,7 +257,8 @@
       <workItem from="1642061114905" duration="5272000" />
       <workItem from="1642071699673" duration="6829000" />
       <workItem from="1642081158859" duration="9663000" />
-      <workItem from="1642096007331" duration="14111000" />
+      <workItem from="1642096007331" duration="14888000" />
+      <workItem from="1642130028147" duration="1264000" />
     </task>
     <servers />
   </component>
@@ -278,5 +276,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
