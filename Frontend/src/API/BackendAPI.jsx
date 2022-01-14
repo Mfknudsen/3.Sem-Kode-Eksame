@@ -37,6 +37,23 @@ function BackendAPI(){
         return json;
     }
 
+    const GetBoats = (id) =>{
+        const [json, setJson] = useState([]);
+
+        const options = makeOptions("PUT", true, {id: id});
+        const getData = async () => {
+            const response = await fetch(urlAPI+"Boat", options)
+            const json = await response.json();
+            setJson(json)
+        }
+
+        useEffect(() => {
+            getData();
+        });
+
+        return json;
+    }
+
     const AddAuction = (name, location, time, date) => {
         const options = makeOptions("POST", true, { name: name, location: location, time: time, date: date});
         fetch(urlAPI+"Auction/Add", options)
@@ -74,7 +91,8 @@ function BackendAPI(){
             .then(response => { setToken(response.token);
             return {
                 username: response["username"],
-                role: response["role"] 
+                role: response["role"], 
+                id: response["id"]
             }})
     };
     const register = (user, password) => {
@@ -116,6 +134,7 @@ function BackendAPI(){
         AddAuction,
         RemoveAuction,
         AddBoat,
+        GetBoats,
         UpdateBoat,
         UpdateOwner,
         makeOptions,

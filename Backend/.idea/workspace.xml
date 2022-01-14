@@ -10,11 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e654cee-d439-4d6e-87ec-cfcbaa9efafd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.github/workflows/frontend.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../.github/workflows/frontend.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Boat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/facades/BoatFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/facades/BoatFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rest/AuctionRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/AuctionRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Backend-1.0.1/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Backend-1.0.1/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rest/BoatRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/BoatRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/security/LoginEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/security/LoginEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/node_modules/.cache/.eslintcache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +263,7 @@
       <workItem from="1642071699673" duration="6829000" />
       <workItem from="1642081158859" duration="9663000" />
       <workItem from="1642096007331" duration="14888000" />
-      <workItem from="1642130028147" duration="1264000" />
+      <workItem from="1642130028147" duration="7335000" />
     </task>
     <servers />
   </component>

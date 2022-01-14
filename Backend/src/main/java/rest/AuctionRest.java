@@ -30,6 +30,7 @@ public class AuctionRest {
     }
 
     @GET
+    @Path("Pop")
     @Produces(MediaType.TEXT_PLAIN)
     public String Populate() {
         System.out.println("Populating");
@@ -45,6 +46,7 @@ public class AuctionRest {
 
         u1.addRole(r1);
         u2.addRole(r2);
+        u1.setOwner(o1);
         b1.setAuction(a2);
         b2.setAuction(a1);
         b1.setOwner(o1);
@@ -103,7 +105,6 @@ public class AuctionRest {
     @Path("Add")
     public void AddAuction(String jsonString) {
         AuctionDTO dto = ApplicationConfig.GetGSON().fromJson(jsonString, AuctionDTO.class);
-        System.out.println(dto);
         getAuctionFacade().create(dto);
     }
 

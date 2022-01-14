@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import BackendAPI from './API/BackendAPI';
 import AuctionListPage from './Pages/AuctionListPage';
 import AdminPage from './Pages/AdminPage';
@@ -58,14 +58,15 @@ function RegisterUser({ user }) {
 function LoggedIn(props) {
   return (
     <div>
-      {props.user["role"] === "user" ? (<UserPage/>) : (<AdminPage/>)}
+      {props.user === "user" ? (<UserPage id={props.id}/>) : (<AdminPage/>)}
     </div>
   )
 }
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState('');
+  const [id, setID] = useState('');
 
   const logout = () => {
     BackendAPI.logout()
@@ -73,8 +74,10 @@ function App() {
   }
   const login = (user, pass) => {
     BackendAPI.login(user, pass)
-      .then(response => {setLoggedIn(true);
-      setUser(response);
+      .then(response => {
+        setUser(response["role"]);
+        setID( response["id"]+"");
+        setLoggedIn(true);
       });
   }
   const newUser = (user, pass) => {
@@ -87,7 +90,7 @@ function App() {
       {!loggedIn ? (<LogIn login={login} />) : 
       (<div>
         <button onClick={logout}>Logout</button>
-        <LoggedIn user={user} />
+        <LoggedIn user={user} id={id} />
       </div>)}
       <div>
         <AuctionListPage/>

@@ -6,7 +6,7 @@ export default function AuctionList(){
 
     return(
         <div>
-            List of All Auctions
+            <h1>List of All Auctions</h1>
             <ul>
                 {
                     auctionList.map((element, index) => (

@@ -20,9 +20,9 @@ public class BoatRest {
         return boatFacade;
     }
 
-    @GET
+    @PUT
     @RolesAllowed("user")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes
     @Produces(MediaType.APPLICATION_JSON)
     public String get(String jsonString) {
         JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();

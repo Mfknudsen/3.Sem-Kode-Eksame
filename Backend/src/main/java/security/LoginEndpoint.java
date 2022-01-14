@@ -59,6 +59,7 @@ public class LoginEndpoint {
             JsonObject responseJson = new JsonObject();
             responseJson.addProperty("username", username);
             responseJson.addProperty("role", user.getFirstRole());
+            responseJson.addProperty("id", user.getOwner().getId());
             responseJson.addProperty("token", token);
             return Response.ok(new Gson().toJson(responseJson)).build();
 

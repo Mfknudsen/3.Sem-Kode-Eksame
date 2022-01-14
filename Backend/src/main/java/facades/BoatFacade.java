@@ -44,7 +44,7 @@ public class BoatFacade implements IFacade<BoatDTO> {
 
     public List<BoatDTO> getByOwned(long id) {
         EntityManager em = emf.createEntityManager();
-        List<BoatDTO> result = BoatDTO.getDTOs(em.createQuery("select b from Boat b where b.ownerID=" + id, Boat.class).getResultList());
+        List<BoatDTO> result = BoatDTO.getDTOs(em.createQuery("select b from Boat b where b.owner.id=" + id, Boat.class).getResultList());
         em.close();
         return result;
     }

@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import BackendAPI from "../API/BackendAPI";
 
-export default function UserPage(){
+export default function UserPage(props){
     return(
         <div>
             <AddBoat/>
             <UpdateBoat/>
-            <OwnedBoats/>
+            <OwnedBoats id={props.id}/>
         </div>
     )
 }
@@ -113,10 +113,27 @@ function UpdateBoat(){
     )
 }
 
-function OwnedBoats(){
+function OwnedBoats(props){
+    let boatList = BackendAPI.GetBoats(props.id);
+
     return(
         <div>
             <h1>Owned Boats</h1>
+            <ul>
+                {
+                    boatList.map((element, index) => (
+                        <li key={index}>
+                            <h4>ID: {element["id"]}</h4>
+                            <h4>Auction ID: {element["auction"]}</h4>
+                            <p>Name: {element["name"]}</p>
+                            <p>Brand: {element["brand"]}</p>
+                            <p>Make: {element["make"]}</p>
+                            <p>Year: {element["year"]}</p>
+                            <p>URL: {element["url"]}</p>
+                        </li>
+                    ))
+                }
+            </ul> 
         </div>
     )
 }
